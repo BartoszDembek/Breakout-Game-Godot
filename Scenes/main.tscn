@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba0hwspsxku16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fcgd"]
+size = Vector2(240, 1026)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnh4h"]
+size = Vector2(1282, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcwkr"]
+size = Vector2(1280, 26)
+
+[node name="Main" type="Node2D"]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
+position = Vector2(-120, 512)
+shape = SubResource("RectangleShape2D_4fcgd")
+
+[node name="WallRight" type="StaticBody2D" parent="Walls"]
+position = Vector2(1520, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
+position = Vector2(-120, 512)
+shape = SubResource("RectangleShape2D_4fcgd")
+
+[node name="WallTop" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop"]
+position = Vector2(641, -27.5)
+shape = SubResource("RectangleShape2D_rnh4h")
+
+[node name="ResetArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetArea"]
+position = Vector2(640, 1036)
+shape = SubResource("RectangleShape2D_gcwkr")
