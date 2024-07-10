@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba0hwspsxku16"]
+[gd_scene load_steps=5 format=3 uid="uid://ba0hwspsxku16"]
+
+[ext_resource type="PackedScene" uid="uid://p1ilgdtlbw3m" path="res://Scenes/player.tscn" id="1_h0sqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fcgd"]
 size = Vector2(240, 1026)
@@ -12,6 +14,7 @@ size = Vector2(1280, 26)
 [node name="Main" type="Node2D"]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Background" type="ColorRect" parent="BackgroundLayer"]
 anchors_preset = 15
@@ -47,3 +50,6 @@ shape = SubResource("RectangleShape2D_rnh4h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetArea"]
 position = Vector2(640, 1036)
 shape = SubResource("RectangleShape2D_gcwkr")
+
+[node name="Player" parent="." instance=ExtResource("1_h0sqa")]
+position = Vector2(640, 940)
