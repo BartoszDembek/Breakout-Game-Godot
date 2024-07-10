@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpre22n0doa00" path="res://Assets/Paddle.png" id="1_e7jbc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l727q"]
-size = Vector2(182, 30)
+size = Vector2(182, 3)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7hn1c")
@@ -15,4 +15,5 @@ scale = Vector2(1, 1.5)
 texture = ExtResource("1_e7jbc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13.5)
 shape = SubResource("RectangleShape2D_l727q")
