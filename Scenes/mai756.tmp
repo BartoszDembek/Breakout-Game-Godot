@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba0hwspsxku16"]
+[gd_scene load_steps=7 format=3 uid="uid://ba0hwspsxku16"]
 
 [ext_resource type="PackedScene" uid="uid://p1ilgdtlbw3m" path="res://Scenes/player.tscn" id="1_h0sqa"]
 [ext_resource type="PackedScene" uid="uid://donci12fqikbi" path="res://Scenes/ball.tscn" id="2_n2elh"]
+[ext_resource type="PackedScene" uid="uid://hliv6bph1obe" path="res://Scenes/brick.tscn" id="3_odyjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fcgd"]
 size = Vector2(240, 1026)
@@ -57,3 +58,5 @@ position = Vector2(640, 940)
 
 [node name="Ball" parent="." instance=ExtResource("2_n2elh")]
 position = Vector2(640, 750)
+
+[node name="Brick" parent="." instance=ExtResource("3_odyjs")]
