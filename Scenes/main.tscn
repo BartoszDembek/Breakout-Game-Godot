@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba0hwspsxku16"]
+[gd_scene load_steps=9 format=3 uid="uid://ba0hwspsxku16"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_6mk16"]
 [ext_resource type="PackedScene" uid="uid://p1ilgdtlbw3m" path="res://Scenes/player.tscn" id="1_h0sqa"]
-[ext_resource type="PackedScene" uid="uid://donci12fqikbi" path="res://Scenes/ball.tscn" id="2_n2elh"]
+[ext_resource type="PackedScene" uid="uid://bcd6kywr2vo2n" path="res://Scenes/ball.tscn" id="2_n2elh"]
+[ext_resource type="PackedScene" uid="uid://bj60lnqgjgycy" path="res://Scenes/brick_spawner.tscn" id="3_ho0gs"]
+[ext_resource type="PackedScene" uid="uid://5xvbd2nr134h" path="res://Scenes/game_ui.tscn" id="4_p8f5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fcgd"]
 size = Vector2(240, 1026)
@@ -13,6 +16,7 @@ size = Vector2(1282, 55)
 size = Vector2(1280, 26)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_6mk16")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -23,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+color = Color(0.147672, 0.147672, 0.147672, 1)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -46,14 +50,22 @@ shape = SubResource("RectangleShape2D_4fcgd")
 position = Vector2(641, -27.5)
 shape = SubResource("RectangleShape2D_rnh4h")
 
+[node name="Player" parent="." instance=ExtResource("1_h0sqa")]
+position = Vector2(640, 940)
+
+[node name="BrickSpawner" parent="." instance=ExtResource("3_ho0gs")]
+
+[node name="GameUi" parent="." instance=ExtResource("4_p8f5x")]
+layer = 5
+
+[node name="Ball" parent="." instance=ExtResource("2_n2elh")]
+position = Vector2(640, 670)
+
 [node name="ResetArea" type="Area2D" parent="."]
+position = Vector2(-3, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetArea"]
 position = Vector2(640, 1036)
 shape = SubResource("RectangleShape2D_gcwkr")
 
-[node name="Player" parent="." instance=ExtResource("1_h0sqa")]
-position = Vector2(640, 940)
-
-[node name="Ball" parent="." instance=ExtResource("2_n2elh")]
-position = Vector2(640, 750)
+[connection signal="body_entered" from="ResetArea" to="." method="_on_reset_area_body_entered"]

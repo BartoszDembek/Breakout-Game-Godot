@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlukycvj1qtbr"]
+
+[ext_resource type="Script" path="res://Scripts/brick.gd" id="1_sm5dt"]
+[ext_resource type="Texture2D" uid="uid://nnlfjshvdgph" path="res://Assets/pixil-frame-0.png" id="2_w5tds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lusy1"]
+size = Vector2(78, 40)
+
+[node name="Brick" type="StaticBody2D"]
+script = ExtResource("1_sm5dt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 99.0
+offset_bottom = 102.0
+texture = ExtResource("2_w5tds")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(39, 20)
+shape = SubResource("RectangleShape2D_lusy1")

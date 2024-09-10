@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://donci12fqikbi"]
+[gd_scene load_steps=4 format=3 uid="uid://bcd6kywr2vo2n"]
 
 [ext_resource type="Texture2D" uid="uid://dqxkrjeah78r1" path="res://Assets/Ball.png" id="1_0bemy"]
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="1_4jyap"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_70h1p"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyxv8"]
 radius = 16.0312
 
 [node name="Ball" type="CharacterBody2D"]
@@ -13,4 +13,9 @@ script = ExtResource("1_4jyap")
 texture = ExtResource("1_0bemy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_70h1p")
+shape = SubResource("CircleShape2D_eyxv8")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

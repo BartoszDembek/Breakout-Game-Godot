@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlukycvj1qtbr"]
+
+[ext_resource type="Script" path="res://Scripts/brick.gd" id="1_sm5dt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lusy1"]
+size = Vector2(80, 40)
+
+[node name="Brick" type="Area2D"]
+script = ExtResource("1_sm5dt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(80, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 20)
+shape = SubResource("RectangleShape2D_lusy1")

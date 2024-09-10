@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://5xvbd2nr134h"]
+
+[ext_resource type="Script" path="res://Scripts/game_ui.gd" id="1_3ip2e"]
+[ext_resource type="Theme" uid="uid://dbyl4f60yrhqt" path="res://Assets/new_theme.tres" id="2_cp0ig"]
+
+[node name="GameUi" type="CanvasLayer"]
+script = ExtResource("1_3ip2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 13
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("2_cp0ig")
+text = "Life: "
+vertical_alignment = 2
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_cp0ig")
+text = "Score:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 450
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="GameOptionLabel" type="Label" parent="MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_cp0ig")
+horizontal_alignment = 1
+
+[node name="QuitOptionLabel" type="Label" parent="MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_cp0ig")
+text = "Press Q To Quit Game"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameLabel" type="Label" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_cp0ig")
+theme_override_font_sizes/font_size = 150
+
+[node name="BestScore" type="Label" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_cp0ig")
+text = "Best Score"
+horizontal_alignment = 1
